@@ -6,7 +6,7 @@ n,m=map(int,sys.stdin.readline().split())
 global r, c, d, done, room
 r,c,d=map(int,sys.stdin.readline().split())
 
-done=1
+done=0
 room=[]
 for i in range(n):
     room.append(list(map(int, sys.stdin.readline().split())))
@@ -40,15 +40,9 @@ def reverse():
     elif d==3:
         c+=1
 
-    if room[r][c]==0:
-        done+=1
-    elif room[r][c]==1:
+    if room[r][c]==1:
         print(done)
-        for i in range(len(room)):
-            for j in range(len(room[0])):
-                print(room[i][j], end="")
-            print("")
-        sys.exit(1)
+        sys.exit(0)
 
 E=0
 while True:
@@ -62,6 +56,7 @@ while True:
             forward()
         elif E==4:
             reverse()
+            E=0
         else:
             E+=1
             rotate()
@@ -73,6 +68,7 @@ while True:
             forward()
         elif E==4:
             reverse()
+            E=0
         else:
             E+=1
             rotate()
@@ -84,6 +80,7 @@ while True:
             forward()
         elif E==4:
             reverse()
+            E=0
         else:
             E+=1
             rotate()
@@ -95,12 +92,8 @@ while True:
             forward()
         elif E==4:
             reverse()
+            E=0
         else:
             E+=1
             rotate()
             continue
-    print(r,c,d)
-    for i in range(len(room)):
-        for j in range(len(room[0])):
-            print(room[i][j], end="")
-        print("")
